@@ -28,17 +28,17 @@ export default function Home() {
             ? data.songUrl
             : 'https://open.spotify.com/user/erence21?si=yTsrZT5JSHOp7tn3ist7Ig'
             }
-        className='relative flex w-72 items-center space-x-4 rounded-md border p-5 transition-shadow hover:shadow-md'
+        className='relative flex w-100 items-center space-x-4 rounded-md border p-5 transition-shadow hover:shadow-md'
       >
         <div className='flex-1'>
           <p className='component font-bold'>
             {data?.isPlaying ? data.title : 'Not Listening'}
           </p>
-          <p className='font-dark text-xs'>
+          <p className='font-dark text-xxs'>
             {data?.isPlaying ? data.artist : 'Spotify'}
           </p>
         </div>
-        <div className='absolute right-1.5 bottom-1.5'>
+        <div className='center'>
           <SiSpotify size={20} color={'#1ED760'} />
         </div>
       </a>
