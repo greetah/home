@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
         <a
           target='_blank'
-          rel='noreferer'
+          rel="noreferer noopener"
           href={
             data?.isPlaying
             ? data.songUrl
@@ -52,7 +52,7 @@ export default function Home() {
       <a
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         target="_blank"
-        rel="noreferrer"
+        rel="noreferrer noopener"
         >
         Powered by{' '}
         <span className={styles.logo}>
