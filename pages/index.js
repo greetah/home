@@ -14,6 +14,12 @@ export default function Home() {
         <meta name="description" content="Home of Greetah" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Greta Workman
+        </h1>
+      </main>
         
     <footer className={styles.footer}>
     <a
