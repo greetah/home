@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
         <a
           target='_blank'
-          rel='noopener noreferer'
+          rel='noreferer'
           href={
             data?.isPlaying
             ? data.songUrl
