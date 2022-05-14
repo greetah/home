@@ -8,7 +8,7 @@ export default function Home() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
   const { data } = useSWR('/api/spotify', fetcher);
   return (
-    <><div className={styles.container}>
+    <div className={styles.container}>
       <Head>
         <title>greta</title>
         <meta name="description" content="Home of Greetah" />
@@ -29,9 +29,7 @@ export default function Home() {
               src={data?.albumImageUrl}
               alt={data?.album}
             />
-          ) : (
-            <SiSpotify size={64} color={'#1ED760'} />
-          )}
+          ) : }
         </div>
 
         <div className='flex-1'>
@@ -57,6 +55,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-    </>
   )
 }
