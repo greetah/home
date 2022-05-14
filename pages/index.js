@@ -14,7 +14,9 @@ export default function Home() {
         <meta name="description" content="Home of Greetah" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <a
+        
+    <footer className={styles.footer}>
+    <a
           href={
             data?.isPlaying
             ? data.songUrl
@@ -22,16 +24,6 @@ export default function Home() {
             }
         className='relative flex w-72 items-center space-x-4 rounded-md border p-5 transition-shadow hover:shadow-md'
       >
-        <div className='w-16'>
-          {data?.isPlaying ? (
-            <img
-              className='w-16 shadow-sm'
-              src={data?.albumImageUrl}
-              alt={data?.album}
-            />
-          ) : }
-        </div>
-
         <div className='flex-1'>
           <p className='component font-bold'>
             {data?.isPlaying ? data.title : 'Not Listening'}
@@ -44,7 +36,6 @@ export default function Home() {
           <SiSpotify size={20} color={'#1ED760'} />
         </div>
       </a>
-    <footer className={styles.footer}>
       <a
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         >
