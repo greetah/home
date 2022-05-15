@@ -4,7 +4,7 @@ import fetcher from 'lib/fetcher';
 import { RecentlyPlayed } from 'lib/types';
 import Track from 'components/Track';
 
-export default function Tracks() {
+export default function Track() {
   const { data } = useSWR<RecentlyPlayed>('/api/RecentlyPlayed', fetcher);
 
   if (!data) {
@@ -13,8 +13,8 @@ export default function Tracks() {
 
   return (
     <>
-      {data.tracks.map((track, index) => (
-        <Track ranking={index + 1} key={track.songUrl} {...track} />
+      {data.Track.map((Track, index) => (
+        <Track key={Track.songUrl} {...Track} />
       ))}
     </>
   );
