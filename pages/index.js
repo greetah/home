@@ -23,8 +23,8 @@ export default function Home() {
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
         </p>
-        <RecentlyPlayed />
       </main>
+      <RecentlyPlayed />
         
     <footer className={styles.footer}>
       <a
