@@ -6,7 +6,7 @@ import RecentlyPlayed from './api/RecentlyPlayed';
 
 export default function Home() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
-  const { data } = useSWR('/api/spotify', fetcher);
+  const { data } = useSWR('/api/RecentlyPlayed', fetcher);
   return (
     <div className={styles.container}>
       <Head>
