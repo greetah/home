@@ -21,7 +21,7 @@ export default function Home() {
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
         </p>
-        <TopTracks />
+        <RecentlyPlayed />
       </main>
         
     <footer className={styles.footer}>
