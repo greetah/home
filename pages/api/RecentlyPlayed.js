@@ -1,4 +1,3 @@
-import querystring from 'querystring';
 import { getRecentlyPlayed } from '../../lib/spotify';
 
 export default async (_, res) => {
