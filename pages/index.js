@@ -26,7 +26,7 @@ export default function Home() {
           href={
             data?.isPlaying
             ? data.songUrl
-            : 'https://open.spotify.com/user/erence21?si=yTsrZT5JSHOp7tn3ist7Ig'
+            : ' '
             }
         className='relative flex w-100 items-center space-x-4 rounded-md border p-5 transition-shadow hover:shadow-md'
       >
