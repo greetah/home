@@ -2,8 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import useSWR from 'swr';
-import { SiSpotify } from 'react-icons/si'
-import Spotify from './api/RecentlyPlayed';
 import RecentlyPlayed from './api/RecentlyPlayed';
 
 export default function Home() {
@@ -24,7 +22,9 @@ export default function Home() {
         <p className="text-gray-600 dark:text-gray-400 mb-4">
         </p>
       </main>
+      <div>
       <RecentlyPlayed />
+      </div>
         
     <footer className={styles.footer}>
       <a
