@@ -19,29 +19,12 @@ export default function Home() {
         <h1 className={styles.title}>
           Greta Workman
         </h1>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">
+        </p>
+        <TopTracks />
       </main>
         
     <footer className={styles.footer}>
-    <a
-          href={
-            data?.isPlaying
-            ? data.songUrl
-            : ' '
-            }
-        className='relative flex w-100 items-center space-x-4 rounded-md border p-5 transition-shadow hover:shadow-md'
-      >
-        <div className='flex-1'>
-          <p className='component font-bold'>
-            {data?.isPlaying ? data.title : 'Not Listening'}
-          </p>
-          <p className='font-dark text-xxs'>
-            {data?.isPlaying ? data.artist : 'Spotify'}
-          </p>
-        </div>
-        <div className='center'>
-          <SiSpotify size={20} color={'#1ED760'} />
-        </div>
-      </a>
       <a
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         >
