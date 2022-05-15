@@ -1,12 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import useSWR from 'swr';
 import RecentlyPlayed from './api/RecentlyPlayed';
 
 export default function Home() {
-  const fetcher = (url) => fetch(url).then((r) => r.json());
-  const { items } = useSWR('/api/RecentlyPlayed', fetcher);
   return (
     <div className={styles.container}>
       <Head>
