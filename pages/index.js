@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import RecentlyPlayed from './api/RecentlyPlayed';
 
-export async function Home() {
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
