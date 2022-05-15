@@ -3,7 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import useSWR from 'swr';
 import { SiSpotify } from 'react-icons/si'
-import Spotify from './api/spotify';
+import Spotify from './api/RecentlyPlayed';
+import RecentlyPlayed from './api/RecentlyPlayed';
 
 export default function Home() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
@@ -22,7 +23,7 @@ export default function Home() {
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
         </p>
-        <Spotify />
+        <RecentlyPlayed />
       </main>
         
     <footer className={styles.footer}>
