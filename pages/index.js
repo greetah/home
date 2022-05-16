@@ -5,7 +5,7 @@ import RecentlyPlayed from './api/RecentlyPlayed';
 
 export default function Home() {
   return (
-    <><div className={styles.container}>
+    <><div className={styles.container} />
       <Head>
         <title>greta</title>
         <meta name="description" content="Home of Greetah" />
@@ -55,10 +55,10 @@ export default function Home() {
             </a>
           </main>
         </section>
-      </>
       );
       {'}'}
-    </div><footer className={styles.footer}>
+      < />
+    <div><footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         >
@@ -67,7 +67,7 @@ export default function Home() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
-      </footer></>
+      </footer>
     </div>
-  )
-}
+  );
+  }
