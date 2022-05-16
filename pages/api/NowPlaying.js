@@ -28,37 +28,35 @@ const getAccessToken = async () => {
 
 export const getNowPlaying = async () => {
     const { access_token } = await getAccessToken();
-
+  
     return fetch(NOW_PLAYING_ENDPOINT, {
-        headers: {
-            Authorization: `Bearer ${access_token}`,
-        },
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
     });
-};
-
-export default async (_, res) => {
+  };
+  
+  export default async (_, res) => {
     const response = await getNowPlaying();
-
-    if (response.status === 204 || response.status > 400) {
-        return res.status(200).json({ isPlaying: false });
+  
+    if (
+      response.status === 204 ||
+      response.status > 400 ||
+      response.data.currently_playing_type !== 'track'
+    ) {
+      return res.status(200).json({ isPlaying: false });
     }
-
+  
     const data = {
-      song: await response.json(),
-      isPlaying: song.is_playing,
-      title: song.item.name,
-      artist: song.item.artists.map((_artist) => _artist.name).join(', '),
-      album: song.item.album.name,
-      albumImageUrl: song.item.album.images[0].url,
-      songUrl: song.item.external_urls.spotify
+      isPlaying: response.data.is_playing,
+      title: response.data.item.name,
+      album: response.data.item.album.name,
+      artist: response.data.item.album.artists
+        .map((artist) => artist.name)
+        .join(', '),
+      albumImageUrl: response.data.item.album.images[0].url,
+      songUrl: response.data.item.external_urls.spotify,
     };
-
-    return res.status(200).json({
-        album,
-        albumImageUrl,
-        artist,
-        isPlaying,
-        songUrl,
-        title,
-    });
-};
+  
+    res.status(200).json(data);
+  };
