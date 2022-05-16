@@ -22,8 +22,6 @@ export default function Home() {
     </main>
       <div className='flex flex-col items-center justify-center min-h-screen space-y-3'>
       <a
-      target='_blank'
-      rel='noopener noreferer'
       href={
         data?.isPlaying
           ? data.songUrl
