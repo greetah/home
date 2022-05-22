@@ -1,8 +1,9 @@
 import querystring from 'querystring';
-import { getNowPlaying } from 'lib/spotify';
+import { getNowPlaying } from 'lib/spotify.js'
 
-export default async (_, res) => {
-  const response = await getNowPlaying();
+const response = await getNowPlaying();
+
+function async (_, res) {
 
   if (response.status === 204 || response.status > 400) {
       return res.status(200).json({ isPlaying: false });
