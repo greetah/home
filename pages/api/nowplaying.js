@@ -1,5 +1,5 @@
 import querystring from 'querystring';
-import { getNowPlaying } from 'lib/spotify.js'
+import { getNowPlaying } from '../lib/spotify'
 
 const response = await getNowPlaying();
 
