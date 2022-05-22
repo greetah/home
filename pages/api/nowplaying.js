@@ -9,7 +9,7 @@ function async (_, res) {
       return res.status(200).json({ isPlaying: false });
   }
 
-      const song = await response.json();
+      const song = response.json();
       const isPlaying = song.is_playing;
       const title = song.item.name;
       const artist = song.item.artists.map((_artist) => _artist.name).join(', ');
