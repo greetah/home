@@ -1,5 +1,14 @@
 import { getNowPlaying } from '../lib/spotify.js'
 
+export const getNowPlaying = async () => {
+  const { access_token } = await getAccessToken();
+
+  return fetch(NOW_PLAYING_ENDPOINT, {
+      headers: {
+          Authorization: `Bearer ${access_token}`,
+      },
+  });
+};
 
 export default async (_, res) => {
   const response = await getNowPlaying();
