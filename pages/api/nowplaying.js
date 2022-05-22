@@ -1,17 +1,9 @@
 import { getNowPlaying } from '../lib/spotify.js'
 
-export const getNowPlaying = async () => {
-  const { access_token } = await getAccessToken();
 
-  return fetch(NOW_PLAYING_ENDPOINT, {
-      headers: {
-          Authorization: `Bearer ${access_token}`,
-      },
-  });
-};
+const response = await getNowPlaying();
 
 export default async (_, res) => {
-  const response = await getNowPlaying();
 
   if (response.status === 204 || response.status > 400) {
       return res.status(200).json({ isPlaying: false });
