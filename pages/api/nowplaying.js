@@ -1,7 +1,7 @@
 import { getNowPlaying } from '../lib/spotify.js'
 
 
-const response = await getNowPlaying();
+const response = getNowPlaying();
 
 export default async (_, res) => {
 
