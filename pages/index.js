@@ -6,7 +6,7 @@ import { SiSpotify } from 'react-icons/si';
 
 export default function Home() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
-  const { data } = useSWR('/api/NowPlaying', fetcher);
+  const { data } = useSWR('pages/api/nowplaying.js', fetcher);
   return (
       <>
       <div className={styles.container} />
