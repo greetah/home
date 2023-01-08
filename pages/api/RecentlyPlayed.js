@@ -36,14 +36,14 @@ export const getRecentlyPlayed = async () => {
     });
 };
 
-export default async (_, res) => {
+export function (_, res) => {
     const response = await getRecentlyPlayed();
 
     if (response.status === 204 || response.status > 400) {
         return res.status(200).json({ isPlaying: false });
     }
 
-    const song = await response.json();
+    const song = response.json();
     const isPlaying = song.is_playing;
     const title = song.item.name;
     const artist = song.item.artists.map((_artist) => _artist.name).join(', ');
