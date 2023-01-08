@@ -23,10 +23,7 @@ export default function Home() {
         <section className=''>
           <main className='flex flex-col items-center justify-center min-h-screen space-y-3'>
             <a
-              target='_blank'
-              rel='noopener noreferer'
-              href={songUrl
-                : 'https://open.spotify.com/user/reference21?si=yTsrZT5JSHOp7tn3ist7Ig'}
+              href={songUrl}
               className='relative flex items-center p-5 space-x-4 transition-shadow border rounded-md hover:shadow-md w-72'
             >
               <div className='w-16'>
@@ -45,7 +42,7 @@ export default function Home() {
                   {song.title ? song.artist : 'Not Listening'}
                 </p>
                 <p className='text-xs font-dark'>
-                  {song?.isPlaying ? song.artist : 'Spotify'}
+                  {song.isPlaying ? song.artist : 'Spotify'}
                 </p>
               </div>
               <div className='absolute bottom-1.5 right-1.5'>
@@ -56,7 +53,6 @@ export default function Home() {
         </section>
       </>
       );
-      {'}'}
     </div><footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
