@@ -25,17 +25,16 @@ export default function Home() {
             <a
               target='_blank'
               rel='noopener noreferer'
-              href={data?.isPlaying
-                ? data.songUrl
-                : 'https://open.spotify.com/user/erence21?si=yTsrZT5JSHOp7tn3ist7Ig'}
+              href={songUrl
+                : 'https://open.spotify.com/user/reference21?si=yTsrZT5JSHOp7tn3ist7Ig'}
               className='relative flex items-center p-5 space-x-4 transition-shadow border rounded-md hover:shadow-md w-72'
             >
               <div className='w-16'>
-                {data?.title ? (
+                {song.title ? (
                   <img
                     className='w-16 shadow-sm'
-                    src={data?.albumImageUrl}
-                    alt={data?.album} />
+                    src={song.albumImageUrl}
+                    alt={song.album} />
                 ) : (
                   <SiSpotify size={64} color={'#1ED760'} />
                 )}
@@ -43,10 +42,10 @@ export default function Home() {
 
               <div className='flex-1'>
                 <p className='font-bold component'>
-                  {data?.title ? data.artist : 'Not Listening'}
+                  {song.title ? song.artist : 'Not Listening'}
                 </p>
                 <p className='text-xs font-dark'>
-                  {data?.isPlaying ? data.artist : 'Spotify'}
+                  {song?.isPlaying ? song.artist : 'Spotify'}
                 </p>
               </div>
               <div className='absolute bottom-1.5 right-1.5'>
