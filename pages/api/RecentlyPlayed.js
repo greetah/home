@@ -36,7 +36,7 @@ export const getRecentlyPlayed = async () => {
     });
 };
 
-export function (_, res) => {
+export function (rec, res) => {
     const response = await getRecentlyPlayed();
 
     if (response.status === 204 || response.status > 400) {
