@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import getRecentlyPlayed from './api/RecentlyPlayed.js';
+import getNowPlaying from '/RecentlyPlayed.js';
 
 export default function Home() {
   return (
