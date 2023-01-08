@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import getRecentlyPlayed from './api/RecentlyPlayed.js';
+import getNowPlaying from '/RecentlyPlayed.js';
 
 export default function Home() {
   return (
@@ -51,9 +51,10 @@ export default function Home() {
             </a>
           </main>
         </section>
-      </>
       );
-    </div><footer className={styles.footer}>
+    </div>
+
+<footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         >
@@ -62,7 +63,6 @@ export default function Home() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
-      </footer></>
-    </div>
+      </footer>
   )
 }
