@@ -44,7 +44,9 @@ export default function Home() {
         </div>
 
         <div>
-          <h1 className="text-3xl sm:text-4xl mb-1 -ml-[1px]">Greta Workman</h1>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-1 -ml-[1px]">
+            Greta Workman
+          </h1>
           <h2 className="text-gray-700 text-lg mb-4">
             Product Marketing @{" "}
             <a className="my-underline font:semibold" href="https://vercel.com">
