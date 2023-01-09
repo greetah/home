@@ -11,6 +11,28 @@ export default function Home() {
           content="Director of Product Marketing at Vercel"
         />
       </Head>
+      <div className="flex justify-center p-4 sm:flex-row sm:space-y-0 sm:space-x-4 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:space-y-0 sm:space-x-4 space-y-4">
+          <div>
+            <a className="my-underline" href="https://twitter.com/gretaworkman">
+              Twitter
+            </a>
+          </div>
+          <div>
+            <a
+              className="my-underline"
+              href="https://www.linkedin.com/in/gretaworkman/"
+            >
+              Linkedin
+            </a>
+          </div>
+          <div>
+            <a className="my-underline" href="https://github.com/greetah">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
       <div className="justify-between flex flex-col sm:flex-row items-start py-10">
         <div className="sm:mr-8">
           <Image
@@ -32,31 +54,6 @@ export default function Home() {
           {/* <p className="text-gray-600 mb-16">
             
           </p> */}
-          <div className="w-full grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
-            <div className="flex flex-col sm:flex-row sm:space-y-0 sm:space-x-4 space-y-4">
-              <div>
-                <a
-                  className="my-underline"
-                  href="https://twitter.com/gretaworkman"
-                >
-                  Twitter
-                </a>
-              </div>
-              <div>
-                <a
-                  className="my-underline"
-                  href="https://www.linkedin.com/in/gretaworkman/"
-                >
-                  Linkedin
-                </a>
-              </div>
-              <div>
-                <a className="my-underline" href="https://github.com/greetah">
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
