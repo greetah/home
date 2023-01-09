@@ -1,8 +1,16 @@
 import Image from "next/image";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <div className="max-w-5xl mx-auto px-20">
+      <Head>
+        <title>Greta Workman</title>
+        <meta
+          property="description"
+          content="Director of Product Marketing at Vercel"
+        />
+      </Head>
       <div className="justify-between flex flex-col sm:flex-row items-start py-10">
         <div className="sm:mr-8">
           <Image
