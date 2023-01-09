@@ -34,27 +34,31 @@ export default function Home() {
           {/* <p className="text-gray-600 mb-16">
             
           </p> */}
-        </div>
-      </div>
-      <div className="flex justify-center p-4 sm:flex-row sm:space-y-0 sm:space-x-4 space-y-4">
-        <div className="flex flex-col sm:flex-row sm:space-y-0 sm:space-x-4 space-y-4">
+
           <div>
-            <a className="my-underline" href="https://twitter.com/gretaworkman">
-              Twitter
-            </a>
-          </div>
-          <div>
-            <a
-              className="my-underline"
-              href="https://www.linkedin.com/in/gretaworkman/"
-            >
-              Linkedin
-            </a>
-          </div>
-          <div>
-            <a className="my-underline" href="https://github.com/greetah">
-              GitHub
-            </a>
+            <div className="flex flex-col sm:flex-row sm:space-y-0 sm:space-x-4 space-y-4">
+              <div>
+                <a
+                  className="my-underline"
+                  href="https://twitter.com/gretaworkman"
+                >
+                  Twitter
+                </a>
+              </div>
+              <div>
+                <a
+                  className="my-underline"
+                  href="https://www.linkedin.com/in/gretaworkman/"
+                >
+                  Linkedin
+                </a>
+              </div>
+              <div>
+                <a className="my-underline" href="https://github.com/greetah">
+                  GitHub
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
