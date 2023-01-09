@@ -6,7 +6,7 @@ export default function Home() {
       <div className="flex flex-col sm:flex-row items-start py-8">
         <div className="mr-8">
           <Image
-            className="rounded-lg"
+            className="rounded-lg w-full sm:w-auto"
             width={250}
             height={307}
             src="/gretaworkman.jpg"
