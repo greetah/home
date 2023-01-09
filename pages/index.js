@@ -3,7 +3,7 @@ import Head from "next/head";
 
 export default function Home() {
   return (
-    <div className="max-w-5xl mx-auto px-20">
+    <div className="max-w-4xl mx-auto px-10">
       <Head>
         <title>Greta Workman</title>
         <meta
