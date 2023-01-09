@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Head from "next/head";
+import { useEffect } from "react";
 import useSWR from "swr";
+import { animate } from "motion";
 
 export default function Home() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
@@ -26,18 +28,18 @@ export default function Home() {
         </div>
 
         <div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-1 -ml-[1px]">
-            Greta Workman
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-1 -ml-[1px]">
+            greta workman
           </h1>
           <h2 className="text-gray-700 text-lg mb-4">
-            Product Marketing @{" "}
+            product marketing @{" "}
             <a className="my-underline font:semibold" href="https://vercel.com">
               Vercel
             </a>
           </h2>
 
           <div>
-            <div className="flex flex-col sm:flex-row sm:space-y-0 sm:space-x-4 space-y-4">
+            <div className="flex flex-col text-gray-700 text-lg mb-4 sm:flex-row sm:space-y-0 sm:space-x-4 space-y-4">
               <div>
                 <a
                   className="my-underline"
@@ -60,15 +62,11 @@ export default function Home() {
                 </a>
               </div>
             </div>
+            <div className="font:semibold text:small py-6 pr-4">
+              <p>{data?.isPlaying ? data.title : " "}</p>
+              <p>{data?.isPlaying ? data.artist : " "}</p>
+            </div>
           </div>
-        </div>
-        <div className="flex-1">
-          <p className="component font-bold">
-            {data?.isPlaying ? data.title : " "}
-          </p>
-          <p className="font-dark text-xs">
-            {data?.isPlaying ? data.artist : " "}
-          </p>
         </div>
       </div>
     </div>
