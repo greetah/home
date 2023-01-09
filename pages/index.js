@@ -24,6 +24,7 @@ export default function Home() {
             src="/gretaworkman.jpg"
           />
         </div>
+
         <div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-1 -ml-[1px]">
             Greta Workman
@@ -34,9 +35,6 @@ export default function Home() {
               Vercel
             </a>
           </h2>
-          {/* <p className="text-gray-600 mb-16">
-
-</p> */}
 
           <div>
             <div className="flex flex-col sm:flex-row sm:space-y-0 sm:space-x-4 space-y-4">
@@ -60,14 +58,17 @@ export default function Home() {
                 <a className="my-underline" href="https://github.com/greetah">
                   GitHub
                 </a>
-                <div className="bg-gray-600">
-                  <main className="flex items-center justify-center">
-                    {console.log(data)}
-                  </main>
-                </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex-1">
+          <p className="component font-bold">
+            {data?.isPlaying ? data.title : " "}
+          </p>
+          <p className="font-dark text-xs">
+            {data?.isPlaying ? data.artist : " "}
+          </p>
         </div>
       </div>
     </div>
