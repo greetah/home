@@ -62,9 +62,14 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="font:semibold text:small py-6 pr-4">
-              <p>{data?.isPlaying ? data.title : " "}</p>
-              <p>{data?.isPlaying ? data.artist : " "}</p>
+            <div className="py-6 pr-4 font:bold animate-pulse">
+              {data?.imageurl}
+              <p className="font:extrabold">
+                {data?.isPlaying ? data.title : " test "}
+              </p>
+              <p className="font:semi-bold">
+                {data?.isPlaying ? data.artist : " test "}
+              </p>
             </div>
           </div>
         </div>
