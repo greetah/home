@@ -28,17 +28,7 @@ module.exports = {
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
-      mono: ['ui-monospace', 'SFMono-Regular',]
-    },
-    spacing: {
-      sm: '8px',
-      md: '12px',
-      lg: '16px',
-      xl: '24px',
-    },
-      borderRadius: {
-        '4xl': '2rem',
-      }
+      mono: ['ui-monospace', 'SFMono-Regular']
     }
   }
-}
+  }
