@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Head from "next/head";
+import useSWR from "swr";
 
 export default function Home() {
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+  const { data } = useSWR("/api/spotify", fetcher);
   return (
     <div className="max-w-4xl mx-auto px-10">
       <Head>
@@ -32,8 +35,8 @@ export default function Home() {
             </a>
           </h2>
           {/* <p className="text-gray-600 mb-16">
-            
-          </p> */}
+
+</p> */}
 
           <div>
             <div className="flex flex-col sm:flex-row sm:space-y-0 sm:space-x-4 space-y-4">
@@ -57,6 +60,11 @@ export default function Home() {
                 <a className="my-underline" href="https://github.com/greetah">
                   GitHub
                 </a>
+                <div className="bg-gray-600">
+                  <main className="flex items-center justify-center">
+                    {console.log(data)}
+                  </main>
+                </div>
               </div>
             </div>
           </div>
