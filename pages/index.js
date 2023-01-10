@@ -26,6 +26,7 @@ export default function Home() {
             width={250}
             height={307}
             src="/gretaworkman.jpg"
+            priority={true}
           />
         </div>
 
