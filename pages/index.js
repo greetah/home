@@ -63,8 +63,10 @@ export default function Home() {
               </div>
             </div>
             <div className="grid-rows-auto grid-flow-col gap-4 py-6 pr-4">
-              <div className="row-span-2">
-                {data?.isPlaying ? data.albumImageUrl : " photo"}
+              <div className="my-underline animate-pulse row-span-2">
+                <a href="{data.?isPlaying ? data.songUrl : null}">
+                  {data?.isPlaying ? "Now Playing" : " "} Now Playing
+                </a>
               </div>
               <div className="font:bold animate-pulse">
                 <p className="font:extrabold">
