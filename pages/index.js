@@ -11,14 +11,11 @@ export default function Home() {
     <div className="max-w-4xl mx-auto px-10">
       <Head>
         <title>Greta Workman</title>
+        <link rel="icon" href="/favicon.jpg" />
         <meta
           property="description"
           content="Director of Product Marketing at Vercel"
           name="viewport"
-          link
-          rel="icon"
-          href="/favicon.jpg"
-          src="favicon.jpg"
         />
       </Head>
 
