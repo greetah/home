@@ -11,7 +11,7 @@ export default function Home() {
     <div className="max-w-4xl mx-auto px-10">
       <Head>
         <title>Greta Workman</title>
-        <link rel="icon" href="/favicon.jpg" />
+        <link rel="icon" href="/favicon.svg" />
         <meta
           property="description"
           content="Director of Product Marketing at Vercel"
