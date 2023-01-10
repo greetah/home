@@ -14,6 +14,11 @@ export default function Home() {
         <meta
           property="description"
           content="Director of Product Marketing at Vercel"
+          name="viewport"
+          link
+          rel="icon"
+          href="/favicon.jpg"
+          src="favicon.jpg"
         />
       </Head>
 
