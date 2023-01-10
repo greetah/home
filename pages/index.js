@@ -19,7 +19,7 @@ export default function Home() {
         />
       </Head>
 
-      <div className="justify-between flex flex-col sm:flex-row items-start py-10">
+      <div className="justify-between flex flex-col sm:flex-row items-start py-10 w-full">
         <div className="sm:mr-8">
           <Image
             className="shadow-lg transition-shadow duration-200 rounded-lg w-full sm:w-auto hover:shadow-2xl"
@@ -65,7 +65,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="grid-rows-auto grid-flow-col gap-4 py-6 pr-4">
+            <div className="grid-rows-auto grid-flow-col gap-4 py-6 pr-4 w-full">
               <div className="my-underline animate-pulse row-span-2">
                 <a href={data?.isPlaying ? data.songUrl : null}>
                   {data?.isPlaying ? "Now Playing" : null}
