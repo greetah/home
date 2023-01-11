@@ -25,7 +25,7 @@ const getAccessToken = async () => {
 };
 
 export const getNowPlaying = async () => {
-  runtime: 'edge',
+  runtime: "edge";
   const { access_token } = await getAccessToken();
 
   return fetch(NOW_PLAYING_ENDPOINT, {
