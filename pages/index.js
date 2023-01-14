@@ -3,10 +3,39 @@ import Head from "next/head";
 import { useEffect } from "react";
 import useSWR from "swr";
 import { animate } from "motion";
+import { getNowPlaying } from "./api/spotify";
 
-export default function Home() {
-  const fetcher = (url) => fetch(url).then((r) => r.json());
-  const { data } = useSWR("/api/spotify", fetcher);
+export async function getStaticProps() {
+  const response = await getNowPlaying();
+
+  if (response.status === 204 || response.status > 400) {
+    return { props: { isPlaying: false }, revalidate: 10 };
+  }
+
+  const song = await response.json();
+  const isPlaying = song.is_playing;
+  const title = song.item.name;
+  const artist = song.item.artists.map((_artist) => _artist.name).join(", ");
+  const album = song.item.album.name;
+  const albumImageUrl = song.item.album.images[0].url;
+  const songUrl = song.item.external_urls.spotify;
+
+  return {
+    props: {
+      album,
+      albumImageUrl,
+      artist,
+      isPlaying,
+      songUrl,
+      title,
+    },
+    revalidate: 10,
+  };
+}
+
+export default function Home(data) {
+  // const fetcher = (url) => fetch(url).then((r) => r.json());
+  // const { data } = useSWR("/api/spotify", fetcher);
   return (
     <div className="max-w-4xl mx-auto px-10">
       <Head>
