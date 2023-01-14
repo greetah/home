@@ -25,7 +25,6 @@ const getAccessToken = async () => {
 };
 
 export const getNowPlaying = async () => {
-  runtime: "edge";
   const { access_token } = await getAccessToken();
 
   return fetch(NOW_PLAYING_ENDPOINT, {
@@ -35,7 +34,7 @@ export const getNowPlaying = async () => {
   });
 };
 
-export default async (_, res) => {
+export default async function handle(_, res) {
   const response = await getNowPlaying();
 
   if (response.status === 204 || response.status > 400) {
@@ -58,4 +57,4 @@ export default async (_, res) => {
     songUrl,
     title,
   });
-};
+}
