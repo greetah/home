@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
-import { useEffect } from "react";
-import useSWR from "swr";
-import { animate } from "motion";
-import { getNowPlaying } from "./api/spotify";
+import { getNowPlaying, processPlaying } from "../lib/spotify";
 
 export async function getStaticProps() {
   const response = await getNowPlaying();
@@ -11,29 +8,15 @@ export async function getStaticProps() {
   if (response.status === 204 || response.status > 400) {
     return { props: { isPlaying: false }, revalidate: 10 };
   }
-
   const song = await response.json();
-  const isPlaying = song.is_playing;
-  const title = song.item.name;
-  const artist = song.item.artists.map((_artist) => _artist.name).join(", ");
-  const album = song.item.album.name;
-  const albumImageUrl = song.item.album.images[0].url;
-  const songUrl = song.item.external_urls.spotify;
 
   return {
-    props: {
-      album,
-      albumImageUrl,
-      artist,
-      isPlaying,
-      songUrl,
-      title,
-    },
+    props: processPlaying(song),
     revalidate: 10,
   };
 }
 
-export default function Home(data) {
+export default function Home(props) {
   // const fetcher = (url) => fetch(url).then((r) => r.json());
   // const { data } = useSWR("/api/spotify", fetcher);
   return (
@@ -94,14 +77,14 @@ export default function Home(data) {
                 </a>
               </div>
             </div>
-            {data?.isPlaying ? (
+            {props?.isPlaying ? (
               <div className="grid-rows-auto grid-flow-col gap-4 py-6 pr-4 flex-grow-1">
                 <div className="my-underline font:bold row-span-2">
-                  <a href={data.songUrl}>Now Playing</a>
+                  <a href={props.songUrl}>Now Playing</a>
                 </div>
                 <div className="font-bold">
-                  <p>{data.title}</p>
-                  <p className="font-semibold">{data.artist}</p>
+                  <p>{props.title}</p>
+                  <p className="font-semibold">{props.artist}</p>
                 </div>
               </div>
             ) : null}
