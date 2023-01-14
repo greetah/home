@@ -1,4 +1,5 @@
 import Image from "next/image";
+import greta from "../public/gretaworkman.jpg";
 import Head from "next/head";
 import { getNowPlaying, processPlaying } from "../lib/spotify";
 
@@ -37,7 +38,7 @@ export default function Home(props) {
             className="shadow-lg transition-shadow duration-200 rounded-lg w-full sm:w-auto hover:shadow-2xl"
             width={250}
             height={307}
-            src="/gretaworkman.jpg"
+            src={greta}
             priority={true}
           />
         </div>
