@@ -65,19 +65,17 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="grid-rows-auto grid-flow-col gap-4 py-6 pr-4 flex-grow-1">
-              <div className="my-underline font:bold row-span-2">
-                <a href={data?.isPlaying ? data.songUrl : null}>
-                  {data?.isPlaying ? "Now Playing" : null}
-                </a>
+            {data?.isPlaying ? (
+              <div className="grid-rows-auto grid-flow-col gap-4 py-6 pr-4 flex-grow-1">
+                <div className="my-underline font:bold row-span-2">
+                  <a href={data.songUrl}>Now Playing</a>
+                </div>
+                <div className="font-bold">
+                  <p>{data.title}</p>
+                  <p className="font-semibold">{data.artist}</p>
+                </div>
               </div>
-              <div className="font:bold">
-                <p>{data?.isPlaying ? data.title : " "}</p>
-                <p className="font:semi-bold">
-                  {data?.isPlaying ? data.artist : " "}
-                </p>
-              </div>
-            </div>
+            ) : null}
           </div>
         </div>
       </div>
