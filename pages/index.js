@@ -1,25 +1,48 @@
 import Image from "next/image";
+import useSWR, { SWRConfig } from "swr";
 import greta from "../public/gretaworkman.jpg";
 import Head from "next/head";
 import { getNowPlaying, processPlaying } from "../lib/spotify";
 
+// Use an getStaticProps ISR + `fallback` with SWR
+// @see https://swr.vercel.app/docs/with-nextjs#pre-rendering-with-default-data
+// This technique allows us to use ISR on the first render,
+// but then use SWR to get songs if they change while the user is on the
+// page (after we use refreshInterval option later down this page).
 export async function getStaticProps() {
   const response = await getNowPlaying();
 
   if (response.status === 204 || response.status > 400) {
-    return { props: { isPlaying: false }, revalidate: 10 };
+    return { props: { fallback: { isPlaying: false } }, revalidate: 10 };
   }
+
   const song = await response.json();
 
   return {
-    props: processPlaying(song),
-    revalidate: 10,
+    props: {
+      fallback: {
+        "/api/spotify": processPlaying(song),
+      },
+    },
   };
 }
 
-export default function Home(props) {
-  // const fetcher = (url) => fetch(url).then((r) => r.json());
-  // const { data } = useSWR("/api/spotify", fetcher);
+export default function Page({ fallback }) {
+  // SWR hooks inside the `SWRConfig` boundary will use those values.
+  // Wrap the main component with <SWRConfig>
+  // @see https://swr.vercel.app/docs/with-nextjs#pre-rendering-with-default-data
+  return (
+    <SWRConfig value={{ fallback }}>
+      <Home />
+    </SWRConfig>
+  );
+}
+
+function Home() {
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+  // This is prefetched w/ISR but then we refresh every 5 seconds for the latest
+  // song.
+  const { data } = useSWR("/api/spotify", fetcher, { refreshInterval: 5000 });
   return (
     <div className="max-w-4xl mx-auto px-10">
       <Head>
@@ -78,14 +101,14 @@ export default function Home(props) {
                 </a>
               </div>
             </div>
-            {props?.isPlaying ? (
+            {data?.isPlaying ? (
               <div className="grid-rows-auto grid-flow-col gap-4 py-6 pr-4 flex-grow-1">
                 <div className="my-underline font:bold row-span-2">
-                  <a href={props.songUrl}>Now Playing</a>
+                  <a href={data.songUrl}>Now Playing</a>
                 </div>
                 <div className="font-bold">
-                  <p>{props.title}</p>
-                  <p className="font-semibold">{props.artist}</p>
+                  <p>{data.title}</p>
+                  <p className="font-semibold">{data.artist}</p>
                 </div>
               </div>
             ) : null}
