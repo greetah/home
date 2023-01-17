@@ -18,6 +18,7 @@ export async function getStaticProps() {
 
   const song = await response.json();
 
+  console.log(processPlaying(song));
   return {
     props: {
       fallback: {
@@ -41,7 +42,7 @@ export default function Page({ fallback }) {
 function Home() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
   // This is prefetched w/ISR but then we refresh every 5 seconds for the latest
-  // song.
+  // song using SWR.
   const { data } = useSWR("/api/spotify", fetcher, { refreshInterval: 5000 });
   return (
     <div className="max-w-4xl mx-auto px-10">
@@ -62,6 +63,7 @@ function Home() {
             width={250}
             height={307}
             src={greta}
+            // Adding `priority` since image is above the fold, this tells Next.js to load the image first
             priority={true}
           />
         </div>
