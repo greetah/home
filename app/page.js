@@ -9,12 +9,17 @@ export const metadata = {
 export default async function Page() {
   const response = await getNowPlaying();
   let data;
+
   if (response.status === 204 || response.status > 400) {
     data = { isPlaying: false };
+    if (response.status === 401) {
+      console.error("TOKEN IS FUCKED: " + response.statusText);
+    }
+  } else {
+    const song = await response.json();
+    data = processPlaying(song);
   }
 
-  const song = await response.json();
-  data = processPlaying(song);
   return (
     <div className="max-w-4xl mx-auto px-10">
       <div className="justify-between flex flex-col sm:flex-row items-start py-10 w-full">
