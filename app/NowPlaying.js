@@ -1,7 +1,5 @@
 import { getNowPlaying, processPlaying } from "../lib/spotify";
 
-export const dynamic = `force-dynamic`;
-
 export default async function NowPlaying() {
   const response = await getNowPlaying();
   let data;
