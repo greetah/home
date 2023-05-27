@@ -1,25 +1,13 @@
 import Image from "next/image";
+import { Suspense } from "react";
 import greta from "../public/gretaworkman.jpg";
-import { getNowPlaying, processPlaying } from "../lib/spotify";
-
+import NowPlaying from "./NowPlaying";
 export const metadata = {
   title: "Greta Workman Homepage",
 };
+
 export const runtime = `edge`;
 export default async function Page() {
-  const response = await getNowPlaying();
-  let data;
-
-  if (response.status === 204 || response.status > 400) {
-    data = { isPlaying: false };
-    if (response.status === 401) {
-      console.error("TOKEN IS FUCKED: " + response.statusText);
-    }
-  } else {
-    const song = await response.json();
-    data = processPlaying(song);
-  }
-
   return (
     <div className="max-w-4xl mx-auto px-10">
       <div className="justify-between flex flex-col sm:flex-row items-start py-10 w-full">
@@ -69,17 +57,9 @@ export default async function Page() {
                 </a>
               </div>
             </div>
-            {data?.isPlaying ? (
-              <div className="grid-rows-auto grid-flow-col gap-4 py-6 pr-4 flex-grow-1">
-                <div className="my-underline font:bold row-span-2">
-                  <a href={data.songUrl}>Now Playing</a>
-                </div>
-                <div className="font-bold">
-                  <p>{data.title}</p>
-                  <p className="font-semibold">{data.artist}</p>
-                </div>
-              </div>
-            ) : null}
+            <Suspense fallback=" ">
+              <NowPlaying />
+            </Suspense>
           </div>
         </div>
       </div>
