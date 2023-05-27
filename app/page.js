@@ -5,7 +5,9 @@ import { getNowPlaying, processPlaying } from "../lib/spotify";
 export const metadata = {
   title: "Greta Workman Homepage",
 };
-
+export const config = {
+  runtime: "edge",
+};
 export default async function Page() {
   const response = await getNowPlaying();
   let data;
