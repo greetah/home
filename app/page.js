@@ -1,36 +1,22 @@
 import Image from "next/image";
 import greta from "../public/gretaworkman.jpg";
-import Head from "next/head";
 import { getNowPlaying, processPlaying } from "../lib/spotify";
 
-export async function getStaticProps() {
-  const response = await getNowPlaying();
+export const metadata = {
+  title: "Greta Workman Homepage",
+};
 
+export default async function Page() {
+  const response = await getNowPlaying();
+  let data;
   if (response.status === 204 || response.status > 400) {
-    return { props: { isPlaying: false }, revalidate: 10 };
+    data = { isPlaying: false };
   }
 
   const song = await response.json();
-
-  return {
-    props: processPlaying(song),
-    revalidate: 10,
-  };
-}
-
-export default function Home(data) {
+  data = processPlaying(song);
   return (
     <div className="max-w-4xl mx-auto px-10">
-      <Head>
-        <title>Greta Workman</title>
-        <link rel="icon" href="/favicon.svg" />
-        <meta
-          property="description"
-          content="Director of Product Marketing at Vercel"
-          name="viewport"
-        />
-      </Head>
-
       <div className="justify-between flex flex-col sm:flex-row items-start py-10 w-full">
         <div className="sm:mr-8">
           <Image
