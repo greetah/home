@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Suspense } from "react";
 import greta from "../public/gretaworkman.jpg";
 import NowPlaying from "./NowPlaying";
+
 export const metadata = {
   title: "Greta Workman Homepage",
 };
