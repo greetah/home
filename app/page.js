@@ -7,7 +7,7 @@ export const metadata = {
   title: "Greta Workman Homepage",
 };
 
-export const runtime = `edge`;
+export const runtime = "edge";
 export default async function Page() {
   return (
     <div className="max-w-4xl mx-auto px-10">
